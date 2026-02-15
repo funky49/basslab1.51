@@ -1,0 +1,255 @@
+/* style.css */
+:root{
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #0ea5e9;
+  --warning-red: #ff3b30;
+  --container-width: 1100px;
+  --base-font-size: 16px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{ box-sizing: border-box; }
+html{ font-size: var(--base-font-size); }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.container{
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.hero{ padding: 1.25rem 0; }
+.hero h2{ margin: 0 0 0.75rem; }
+
+.site-footer{
+  border-top: 1px solid #e6e6e6;
+  padding: 1rem 0;
+  color: var(--muted);
+}
+
+.btn{
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover{ opacity: 0.95; }
+
+.btn.secondary{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #d1d5db;
+}
+
+/* ---------- Header (panic visualizer button) ---------- */
+.site-header{
+  border-bottom: 1px solid #e6e6e6;
+  padding-top: calc(env(safe-area-inset-top) + 0.4rem);
+  padding-bottom: 0.4rem;
+  background: #111;
+}
+
+.header-inner{
+  display:flex;
+  justify-content:center;
+}
+
+/* ---------- Header (panic visualizer button) ---------- */
+.site-header{
+  border-bottom: 1px solid #e6e6e6;
+  padding-top: calc(env(safe-area-inset-top) + 0.4rem);
+  padding-bottom: 0.4rem;
+  background: #111;
+}
+
+.header-inner{
+  display:flex;
+  justify-content:center;
+}
+
+.panic-viz{
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 390px;
+  max-width: 900px;
+  min-height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--warning-red);
+  background: #000;
+  cursor: pointer;
+}
+
+.panic-viz:focus{
+  outline: 3px solid rgba(255,59,48,0.20);
+  outline-offset: 3px;
+}
+
+.panic-viz #waveCanvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.panic-text{
+  position: relative;
+  z-index: 1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--warning-red);
+}
+
+body.active-audio .panic-viz{
+  box-shadow: 0 0 22px rgba(255,59,48,0.40);
+}
+
+
+
+
+
+
+
+body.active-audio .panic-viz{
+  box-shadow: 0 0 22px rgba(255,59,48,0.40);
+}
+
+/* ---------- Generator UI ---------- */
+.knob-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.meta{
+  margin-top: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.gen-controls{
+  display:flex;
+  gap: 0.75rem;
+  justify-content:center;
+  margin-top: 1rem;
+}
+
+/* +/- buttons */
+.freq-step-btn{
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  user-select:none;
+}
+.freq-step-btn:hover{ background:#f3f4f6; }
+
+/* knob */
+.knob{
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  position: relative;
+  user-select: none;
+  touch-action: none;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.35));
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.knob:focus{
+  outline: 3px solid rgba(14,165,233,0.25);
+  outline-offset: 4px;
+}
+
+.knob-indicator{
+  position:absolute;
+  width: 8px;
+  height: 55px;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: 50% 76px;
+  border-radius: 6px;
+  background: rgba(17,24,39,0.75);
+}
+
+.knob-center{
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.55);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 2px;
+}
+
+.knob-value{
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.knob-unit{
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--muted);
+  line-height: 1;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0b1220;--text:#e6edf3;--muted:#9aa4b2;--accent:#60a5fa}
+  .site-footer{ border-color:#1f2937; }
+  .btn.secondary{ border-color:#334155; color: var(--text); }
+  .freq-step-btn{ background:#111827; border-color:#334155; color:#e6edf3; }
+  .freq-step-btn:hover{ background:#0f172a; }
+  .knob{ background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); border-color:#1f2937; }
+  .knob-indicator{ background: rgba(230,237,243,0.70); }
+  .knob-center{ border-color: rgba(255,255,255,0.10); background: rgba(0,0,0,0.20); }
+}
+
+.panic-viz #waveCanvas{
+  position:absolute;
+  /*inset:-10px; maybe??   */
+  inset:0px;
+  width:100%;
+  height:100%;
+  pointer-events: none;  /* clicks go straight to the button */
+}

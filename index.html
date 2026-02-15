@@ -1,0 +1,78 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>basslab by funky49</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="simRoot">
+
+    <header class="site-header warning-header" role="banner">
+      <div class="container header-inner" role="group" aria-label="Warning banner">
+        <button id="vizStopBtn" class="panic-viz" type="button" aria-label="Stop all audio">
+          <canvas id="waveCanvas" aria-hidden="true"></canvas>
+          <span class="panic-text">WARNING — Not Gentle To Speakers</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h2>Oobleck Dance Generator</h2>
+
+        <div class="knob-row">
+          <button id="freqDownBtn" class="freq-step-btn" type="button" aria-label="Decrease frequency">−</button>
+
+          <div
+            id="freqKnob"
+            class="knob"
+            role="slider"
+            tabindex="0"
+            aria-label="Frequency"
+            aria-valuemin="25"
+            aria-valuemax="75"
+            aria-valuenow="49"
+            aria-valuetext="49 Hz"
+          >
+            <div class="knob-indicator"></div>
+            <div class="knob-center">
+              <div class="knob-value" id="freqReadout">49</div>
+              <div class="knob-unit">Hz</div>
+            </div>
+          </div>
+
+          <button id="freqUpBtn" class="freq-step-btn" type="button" aria-label="Increase frequency">+</button>
+        </div>
+
+
+        <div class="gen-controls">
+          <button id="startBtn" class="btn" type="button">Start</button>
+          <button id="stopBtn" class="btn secondary" type="button">Stop</button>
+        </div>
+      </section>
+
+      <section class="hero">
+        <h2>Audio Test</h2>
+        <p>
+          <button id="testToneBtn" class="btn" type="button">
+            Play 3030 Hz Test Tone (9s)
+          </button>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> basslab.science</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
